@@ -1,0 +1,304 @@
+@charset "UTF-8";
+/*Gerillass mixins*/
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s;
+  background: #F5F5F5;
+}
+body.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.4s;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  height: 80px;
+  background: white;
+  width: 100%;
+}
+
+main {
+  max-width: 1400px;
+  margin: auto;
+}
+
+#app-layout {
+  display: flex;
+}
+
+#app-layout #left-col {
+  flex: 1;
+}
+
+#app-layout #right-col {
+  flex: 3;
+}
+
+/* GLOBAL STYLES */
+button {
+  margin: 5px;
+  padding: 5px 8px;
+  background: #32bacf;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: #ffa000;
+  cursor: pointer;
+}
+
+/* MODAL WINDOW */
+#modal-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+#modal-overlay #modal {
+  max-width: 500px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* ADD elemS FORM */
+#modal .modal-header h2 {
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+}
+
+#modal .modal-content .row .input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 5px 15px;
+}
+
+input[type=text],
+input[type=number],
+input[type=email] {
+  font-size: 16px;
+  height: 28px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #666;
+  border: 1px solid #d6d6d6;
+  border-radius: 4px;
+}
+
+#modal .modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin: 5px 10px;
+}
+
+.close-btn {
+  background: #999;
+}
+
+/* elem LIST  */
+#elem-list {
+  display: flex; /* Active Flexbox */
+  flex-wrap: wrap; /* Permet le retour à la ligne */
+  gap: 20px; /* Espace entre les éléments */
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  padding: 30px;
+}
+
+.elem-list-item {
+  flex: 0 0 calc((100% - 40px) / 3);
+  padding: 20px;
+  background: white;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+  border-radius: 10px;
+}
+
+.elem-list-item .media {
+  flex: 1;
+}
+
+.elem-list-item .two-letters {
+  width: 60px;
+  height: 60px;
+  background: #333;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.elem-list-item .content {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.elem-list-item .content .title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+.elem-list-item .action {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* RIGHT COLUMN */
+#right-col {
+  display: none;
+}
+
+#right-col-detail {
+  margin: 20px;
+}
+
+#right-col-detail .label {
+  font-size: 1.1em;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+#right-col-detail .data {
+  font-size: 1.2em;
+}
+
+#app-layout #right-col #back-btn {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  #app-layout #right-col {
+    display: none;
+  }
+  #app-layout #right-col #back-btn {
+    margin: 20px 0 0 20px;
+    display: block;
+  }
+  #modal .modal-content .row {
+    flex-direction: column;
+  }
+}
+/*Colors, fonts, z-index, breakpoints...*/
+.herogradient {
+  background: linear-gradient(300deg, #ffb9d8, #e3a2f8, #9fc5ff, #d6f6ff);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+.hero {
+  height: auto;
+}
+@media (min-width: 768px) {
+  .hero {
+    height: 85vh;
+  }
+}
+
+.title .background {
+  height: auto;
+  aspect-ratio: 14/9;
+}
+@media (min-width: 768px) {
+  .title .background {
+    height: 85vh;
+  }
+}
+
+@font-face {
+  font-family: "blickregular";
+  src: url("../fonts/code-next_regular-webfont.woff2") format("woff2"), url("../fonts/code-next_regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "blickextrabold";
+  src: url("../fonts/code-next_extrabold-webfont.woff2") format("woff2"), url("../fonts/code-next_extrabold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+.card-header {
+  overflow: auto;
+  display: flex;
+  vertical-align: center;
+  margin-bottom: 15px;
+}
+.card-header .card-figure {
+  float: left;
+  margin-right: 15px;
+  height: 40px;
+}
+.card-header .card-title {
+  display: flex;
+  align-items: center;
+}
+
+.card-body {
+  margin-bottom: 40px;
+}
+
+.card-desc {
+  font-size: 14px;
+  line-height: 20px;
+  color: black;
+  opacity: 50%;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.card-time {
+  font-size: 11px;
+  color: black;
+  opacity: 50%;
+  display: block;
+}
+
+.add-btn {
+  color: white;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgb(226, 0, 0);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
+}

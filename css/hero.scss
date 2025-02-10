@@ -1,0 +1,58 @@
+
+  
+
+
+
+.herogradient
+{
+    
+    
+    background: linear-gradient(300deg, #ffb9d8, #e3a2f8, #9fc5ff, #d6f6ff);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+}
+
+
+  
+@keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+// .hero .herochild
+// {
+//     height:66vh;
+//     @include breakpoint(min, medium) {
+//         height: auto;
+//     };
+// }
+.hero
+{
+    height: auto;
+
+    @include breakpoint(min, medium) {
+        height: 85vh;
+    };
+
+}
+
+.title
+{
+    .background
+    {
+        height: auto;
+        //aspect-ratio: 1/1;
+        aspect-ratio: 14/9;
+
+        @include breakpoint(min, medium) {
+            height: 85vh; 
+        }; 
+    }
+}

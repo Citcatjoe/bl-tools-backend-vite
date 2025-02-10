@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="src/style.css" /> -->
+    <!-- <link rel="stylesheet" href="css/main.css" /> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Vite App</title>
+    <script type="module" crossorigin src="./assets/index-CgBYadBa.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-CvDBiSII.css">
+  </head>
+  <body class="bg-gray-100 pt-48 font-i is-hidden">
+    <header class="w-full h-20 bg-white fixed top-0 shadow-lg z-20">
+      <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='53.889'%20height='53.889'%20viewBox='0%200%2053.889%2053.889'%3e%3cg%20id='Groupe_15'%20data-name='Groupe%2015'%20transform='translate(-116.056%20-2534.056)'%3e%3crect%20id='Rectangle_121'%20data-name='Rectangle%20121'%20width='44'%20height='44'%20rx='10'%20transform='matrix(0.966,%200.259,%20-0.259,%200.966,%20127.444,%202534.056)'%20fill='%23e2271b'/%3e%3cg%20id='Groupe_11'%20data-name='Groupe%2011'%20transform='translate(-436.844%203005.052)'%3e%3cpath%20id='Blick_Logo_Rot_RGB'%20d='M12,18.376H7.062V24H12a2.81,2.81,0,1,0,0-5.619M10.947,8.311H7.062V13.7h3.885a2.692,2.692,0,1,0,0-5.384M22.128,21.536a8.686,8.686,0,0,1-8.71,8.661H0V2.108H12.477a8.217,8.217,0,0,1,8.24,8.194,8.118,8.118,0,0,1-1.528,4.75,8.621,8.621,0,0,1,2.94,6.486'%20transform='translate(568.78%20-460.205)'%20fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e" alt="logo blick tools" class="mx-auto absolute top-1/2 -translate-y-1/2 left-4">
+      <ul class="absolute right-4 top-1/2 -translate-y-1/2 flex">
+        <li><button id="logout" class="btn btn-secondary">Déconnexion</button></li>
+      </ul>
+    </header>
+
+    <div id="menu-add" class="fixed bottom-6 right-6">
+      <button class="add-btn h-16 w-16 rounded-full btn-primary shadow-lg">
+        <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='19'%20height='19'%20viewBox='0%200%2019%2019'%3e%3cg%20id='Groupe_20'%20data-name='Groupe%2020'%20transform='translate(-1186%20-684)'%3e%3crect%20id='Rectangle_114'%20data-name='Rectangle%20114'%20width='3'%20height='19'%20rx='1.5'%20transform='translate(1205%20692)%20rotate(90)'%20fill='%23fff'/%3e%3crect%20id='Rectangle_115'%20data-name='Rectangle%20115'%20width='3'%20height='19'%20rx='1.5'%20transform='translate(1197%20703)%20rotate(180)'%20fill='%23fff'/%3e%3c/g%3e%3c/svg%3e" alt="Icon-add" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+      </button>
+      <ul id="menu-add-list" class="absolute bg-white py-2 -top-4  w-60 right-0 rounded-xl shadow-lg">
+        <li id="btn-new-poll" class="btn-white cursor-pointer h-12 flex items-center px-4">Nouveau sondage</li>
+        <li id="btn-new-calendar" class="btn-white cursor-pointer  h-12 flex items-center px-4">Nouveau calendrier</li>
+      </ul>
+    </div>
+    
+    <!-- MODAL -->
+
+    <div id="modal-overlay" class="fixed top-0 bottom-0 left-0 right-0 z-10 hidden">
+      <!-- <div id="modal" class="modal-question absolute w-96 bg-white p-5 rounded-md shadow-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <div class="modal-header">
+              <h2>Modal question title</h2>
+          </div>
+          <ul id="error-label"></ul>
+          <div class="modal-content">
+              <div class="row">
+                  <div class="input-group">
+                      <label class="block text-sm text-gray-400 mb-2">Question</label>
+                      <input type="text" id="questionTxt" class="w-full h-12 rounded-md border px-4 mb-6">
+                  </div>
+                  <div class="input-group">
+                      <label class="block text-sm text-gray-400 mb-2">Answer 0</label>
+                      <input type="text" id="answer0" class="w-full h-12 rounded-md border px-4 mb-6">
+                  </div>
+                  <div class="input-group">
+                      <label class="block text-sm text-gray-400 mb-2">Answer 1</label>
+                      <input type="text" id="answer1" class="w-full h-12 rounded-md border px-4 mb-6">
+                  </div>
+                  <div class="input-group">
+                      <label class="block text-sm text-gray-400 mb-2">Answer 2</label>
+                      <input type="text" id="answer2" class="w-full h-12 rounded-md border px-4 mb-6">
+                  </div>
+                  
+              </div>
+
+             
+
+
+
+          </div>
+          <div class="modal-footer flex gap-3">
+             
+              <button id="close-btn" class="w-full h-12 rounded-md px-4 bg-gray-200">Annuler</button>
+              <button id="save-btn" class="text-white bg-blick w-full h-12 rounded-md px-4 bg-gray-100">Sauver</button>
+          </div>
+      </div> -->
+  </div>
+
+  
+
+  <!-- <div id="overlay" class="fixed top-20 right-0 bottom-0 left-0 bg-black opacity-55 z-10"></div> -->
+
+  <div id="details" class="fixed bg-white w-96 top-20 bottom-0 right-0 shadow-lg p-5 z-10">
+    <div id="details-header" class=" bg-gray-200 -mt-5 -ml-5 -mr-5 px-5 py-5 mb-8">
+      <span id="details-title" class="text-black font-semibold">Titre de la colonne</span>
+    </div>
+    
+    <div id="details-body">
+     
+    </div>
+    <ul id="error-label"></ul>
+    <button id="add-field-btn" class="btn btn-secondary">
+      <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='19'%20height='19'%20viewBox='0%200%2019%2019'%3e%3cg%20id='Groupe_38'%20data-name='Groupe%2038'%20transform='translate(-1186%20-684)'%3e%3crect%20id='Rectangle_114'%20data-name='Rectangle%20114'%20width='3'%20height='19'%20rx='1.5'%20transform='translate(1205%20692)%20rotate(90)'/%3e%3crect%20id='Rectangle_115'%20data-name='Rectangle%20115'%20width='3'%20height='19'%20rx='1.5'%20transform='translate(1197%20703)%20rotate(180)'/%3e%3c/g%3e%3c/svg%3e" alt="Ajouter un champ" class="w-3 mx-auto">
+    </button>
+    <div id="details-footer" class="absolute bg-white bottom-0 left-0 right-0 p-5 flex gap-3 border-t border-gray-200">
+      <button id="close-btn" class="btn btn-secondary">Annuler</button>
+      <button id="save-btn" class="btn btn-primary">Sauver</button>
+    </div>
+  </div>
+ 
+
+    <div id="login-box" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+      <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='53.889'%20height='72.639'%20viewBox='0%200%2053.889%2072.639'%3e%3cg%20id='Groupe_35'%20data-name='Groupe%2035'%20transform='translate(-595.556%20-2464.556)'%3e%3cpath%20id='Tools'%20d='M2.955,0H5.79V-7.92H8.415V-10.5H.315v2.58h2.64Zm11.6.2A5.3,5.3,0,0,0,20.085-5.25a5.3,5.3,0,0,0-5.535-5.445A5.3,5.3,0,0,0,9-5.25,5.3,5.3,0,0,0,14.55.2Zm0-2.7A2.609,2.609,0,0,1,11.9-5.25,2.609,2.609,0,0,1,14.55-7.995,2.6,2.6,0,0,1,17.19-5.25,2.6,2.6,0,0,1,14.55-2.5ZM26.625.2A5.3,5.3,0,0,0,32.16-5.25a5.3,5.3,0,0,0-5.535-5.445,5.3,5.3,0,0,0-5.55,5.445A5.3,5.3,0,0,0,26.625.2Zm0-2.7A2.609,2.609,0,0,1,23.97-5.25a2.609,2.609,0,0,1,2.655-2.745,2.6,2.6,0,0,1,2.64,2.745A2.6,2.6,0,0,1,26.625-2.5ZM33.675,0H40.8V-2.625H36.495V-10.5h-2.82ZM45.8.15c2.355,0,4.11-1.185,4.11-3.375,0-2.01-1.485-2.925-3.675-3.24-1.32-.21-1.755-.435-1.755-.945s.435-.8,1.2-.8,1.215.33,1.3.945h2.73c-.15-2.1-1.695-3.405-4-3.405-2.325,0-4.005,1.215-4.005,3.33,0,2.01,1.455,2.835,3.585,3.165,1.305.21,1.8.495,1.8,1.035,0,.48-.48.795-1.29.795-.9,0-1.38-.36-1.44-1.065H41.58C41.685-1.11,43.29.15,45.8.15Z'%20transform='translate(598%202537)'/%3e%3cg%20id='Groupe_34'%20data-name='Groupe%2034'%20transform='translate(479.5%20-69.5)'%3e%3crect%20id='Rectangle_121'%20data-name='Rectangle%20121'%20width='44'%20height='44'%20rx='10'%20transform='matrix(0.966,%200.259,%20-0.259,%200.966,%20127.444,%202534.056)'%20fill='%23e2271b'/%3e%3cg%20id='Groupe_11'%20data-name='Groupe%2011'%20transform='translate(-436.844%203005.052)'%3e%3cpath%20id='Blick_Logo_Rot_RGB'%20d='M12,18.376H7.062V24H12a2.81,2.81,0,1,0,0-5.619M10.947,8.311H7.062V13.7h3.885a2.692,2.692,0,1,0,0-5.384M22.128,21.536a8.686,8.686,0,0,1-8.71,8.661H0V2.108H12.477a8.217,8.217,0,0,1,8.24,8.194,8.118,8.118,0,0,1-1.528,4.75,8.621,8.621,0,0,1,2.94,6.486'%20transform='translate(568.78%20-460.205)'%20fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e" alt="logo blick tools" class="w-12 mx-auto mb-8">
+
+      <div id="login-form" class="bg-white w-96 p-6 rounded-md shadow-lg">
+        <label for="email" class="block text-sm text-gray-400 mb-2">Email</label>
+        <input type="email" id="email" placeholder="" class="w-full h-12 rounded-md border px-4 mb-6"/>
+
+        <label for="password" class="block text-sm text-gray-400 mb-2">Mot de passe</label>
+        <input type="password" id="password" placeholder="" class="w-full h-12 rounded-md border px-4 mb-6"/>
+
+        <button id="login-button" class="btn btn-primary">Se connecter</button>
+      </div>
+    </div>
+   
+
+    <!-- <div id="firebaseui-auth-container"></div> -->
+    <p id="user-info" class="fixed bottom-4 left-4 z-10">Vérification de l'état de connexion...</p>
+    
+    <div id="app">
+      <ul id="elem-list" class="w-2/3 gap-5">
+
+      </ul>
+    </div>
+    
+  </body>
+</html>
