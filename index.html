@@ -13,11 +13,26 @@
     <title>Vite App</title>
   </head>
   <body class="bg-gray-100 pt-48 font-i is-hidden">
-    <header class="w-full h-20 bg-white fixed top-0 shadow-lg z-20">
+
+    <header class="w-full h-20 bg-white fixed top-0 border-b z-20">
       <img src="src/img/blick-tools-logo.svg" alt="logo blick tools" class="mx-auto absolute top-1/2 -translate-y-1/2 left-4">
-      <ul class="absolute right-4 top-1/2 -translate-y-1/2 flex">
-        <li><button id="logout" class="btn btn-secondary">Déconnexion</button></li>
+      <ul id="filter-by-type" class="absolute font-blickr left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex gap-10">
+        <li id="filter-by-type-all" class="font-blickb cursor-pointer">Tous</li>
+        <li id="filter-by-type-poll" class="cursor-pointer">Sondage</li>
+        <li id="filter-by-type-calendar" class="cursor-pointer">Calendrier</li>
       </ul>
+      <!-- <ul class="absolute right-4 top-1/2 -translate-y-1/2 flex">
+        <li><button id="logout" class="btn btn-secondary">Déconnexion</button></li>
+      </ul> -->
+      <div id="menu-user" class="absolute right-0 h-full aspect-square">
+        <button class="btn-white btn-secondary h-full aspect-square border-l">
+          <img src="src/img/icon-user.svg" alt="Icon-add" class="absolute w-5 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        </button>
+        <ul id="menu-user-list" class="absolute bg-white py-2 -bottom-4 w-60 right-4 rounded-xl shadow-lg">
+          <li id="user-info" class="text-sm text-gray-400 border-b h-16 flex items-center px-4"></li>
+          <li id="logout" class="btn-white cursor-pointer  h-12 flex items-center px-4">Déconnexion</li>
+        </ul>
+      </div>
     </header>
 
     <div id="menu-add" class="fixed bottom-6 right-6">
@@ -29,8 +44,6 @@
         <li id="btn-new-calendar" class="btn-white cursor-pointer  h-12 flex items-center px-4">Nouveau calendrier</li>
       </ul>
     </div>
-    
-    <!-- MODAL -->
 
     <div id="modal-overlay" class="fixed top-0 bottom-0 left-0 right-0 z-10 hidden">
       <!-- <div id="modal" class="modal-question absolute w-96 bg-white p-5 rounded-md shadow-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -70,29 +83,25 @@
               <button id="save-btn" class="text-white bg-blick w-full h-12 rounded-md px-4 bg-gray-100">Sauver</button>
           </div>
       </div> -->
-  </div>
-
-  
-
-  <!-- <div id="overlay" class="fixed top-20 right-0 bottom-0 left-0 bg-black opacity-55 z-10"></div> -->
-
-  <div id="details" class="fixed bg-white w-96 top-20 bottom-0 right-0 shadow-lg p-5 z-10">
-    <div id="details-header" class=" bg-gray-200 -mt-5 -ml-5 -mr-5 px-5 py-5 mb-8">
-      <span id="details-title" class="text-black font-semibold">Titre de la colonne</span>
     </div>
-    
-    <div id="details-body">
-     
+
+    <div id="details" class="fixed bg-white w-96 top-20 bottom-0 right-0 shadow-lg p-5 z-10">
+      <div id="details-header" class=" bg-gray-200 -mt-5 -ml-5 -mr-5 px-5 py-5 mb-8">
+        <span id="details-title" class="text-black text-lg font-semibold">Titre de la colonne</span>
+      </div>
+      
+      <div id="details-body">
+      
+      </div>
+      <ul id="error-label"></ul>
+      <button id="add-field-btn" class="btn btn-secondary">
+        <img src="src/img/icon-plus-black.svg" alt="Ajouter un champ" class="w-3 mx-auto">
+      </button>
+      <div id="details-footer" class="absolute bg-white bottom-0 left-0 right-0 p-5 flex gap-3 border-t border-gray-200">
+        <button id="close-btn" class="btn btn-secondary">Annuler</button>
+        <button id="save-btn" class="btn btn-primary">Sauver</button>
+      </div>
     </div>
-    <ul id="error-label"></ul>
-    <button id="add-field-btn" class="btn btn-secondary">
-      <img src="src/img/icon-plus-black.svg" alt="Ajouter un champ" class="w-3 mx-auto">
-    </button>
-    <div id="details-footer" class="absolute bg-white bottom-0 left-0 right-0 p-5 flex gap-3 border-t border-gray-200">
-      <button id="close-btn" class="btn btn-secondary">Annuler</button>
-      <button id="save-btn" class="btn btn-primary">Sauver</button>
-    </div>
-  </div>
  
 
     <div id="login-box" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -111,10 +120,54 @@
    
 
     <!-- <div id="firebaseui-auth-container"></div> -->
-    <p id="user-info" class="fixed bottom-4 left-4 z-10">Vérification de l'état de connexion...</p>
-    
-    <div id="app">
-      <ul id="elem-list" class="w-2/3 gap-5">
+    <!-- <p id="user-info" class="fixed text-xs text-gray-300 bottom-4 left-4 z-10">Vérification de l'état de connexion...</p> -->
+    <ul class="font-i max-w-5xl mx-auto mt-20 mb-20">
+      <li class="h-12 w-full bg-gray-200 rounded-t-lg">
+        <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-4/12">Titre</div>
+        <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-1/12">Type</div>
+        <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-3/12">Auteur</div>
+        <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-1/12">Perf.</div>
+        <div class="text-xs text-gray-600 px-4 h-full float-right flex items-center"></div>
+      </li>
+      <li class="relative h-20 w-full bg-white">
+        <div class="font-blickb text-sm text-gray-600 px-4 h-full float-left flex items-center w-4/12">
+          Selon toi, qui remportera 
+          l’Euro Féminin 3025 ?
+        </div>
+        <div class="text-sm text-gray-600 px-4 h-full float-left flex items-center w-1/12">
+          <img src="src/img/icon-poll.svg" alt="">
+        </div>
+        <div class="text-sm text-gray-600 px-4 h-full float-left flex items-center w-3/12">
+          cesargreppin@gmail.com
+        </div>
+        <div class="text-sm text-gray-600 px-4 h-full float-left flex items-center w-1/12">
+          58
+        </div>
+        <div class="relative h-full text-sm text-gray-600 px-4 absolute top-1/2 -translate-y-1/2 flex items-center">
+
+          
+          <div id="menu-itemactions" class="absolute right-4"> 
+            <button id="btn-menu-itemactions" class="relative btn-third aspect-square h-8 rounded-md px-4"><img src="src/img/icon-dots-vertical.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3.5 opacity-50"></button>
+            <ul id="menu-itemactions-list" class="absolute top-0 right-10 bg-white py-2 -top-4  w-60 right-0 rounded-xl shadow-lg text-xs">
+              <li id="" class="btn-white cursor-pointer h-10 flex items-center px-4">Iframe URL</li>
+              <li id="" class="btn-white cursor-pointer h-10 flex items-center px-4">Éditer</li>
+              <li id="" class="btn-white cursor-pointer h-10 flex items-center px-4">Aperçu</li>
+              <li id="" class="btn-white cursor-pointer h-10 flex items-center px-4">Vue RS</li>
+              <li id="" class="btn-white cursor-pointer h-10 flex items-center px-4">Supprimer</li>
+            </ul>
+          </div>
+
+
+          
+        </div>
+      </li>
+    </ul>
+    <div id="app" class="max-w-5xl mx-auto">
+      <div id="options" class="flex mb-8 w-96 relative">
+        <img src="src/img/icon-manifier.svg" alt="" class="absolute top-1/2 -translate-y-1/2 left-4">
+        <input id="searchbar" type="text" class="w-full h-14 rounded-full border-gray-300 bg-transparent border pl-14 pr-4" placeholder="Rechercher...">
+      </div>
+      <ul id="elem-list" class="w-full gap-5">
 
       </ul>
     </div>

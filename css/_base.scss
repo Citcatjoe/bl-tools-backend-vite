@@ -156,11 +156,9 @@ input[type="email"] {
 }
 
 .elem-list-item {
-    //display: flex;
     flex: 0 0 calc((100% - 40px) / 3);
-    //border: 1px solid black;
     padding: 20px;
-    background: white;
+    background: red; 
     box-shadow: 0px 3px 6px #00000029;
     border-radius: 10px;
 }

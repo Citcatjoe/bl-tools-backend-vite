@@ -8,7 +8,7 @@ $blick: rgb(226, 0, 0);
     box-sizing: border-box;
 }
 
-body
+body 
 {
     transition: all 0.25s;
 
@@ -28,7 +28,7 @@ body
    
     
 
-    input
+    input 
     {
         
     }
@@ -112,6 +112,19 @@ body
     
 }
 
+.btn-third
+{
+
+    background-color: transparent;
+    color: black;
+
+    &:hover
+    {
+        background-color: rgb(229, 231, 235);
+    }
+    
+}
+
 .btn-white
 {
     background-color: white;
@@ -137,6 +150,45 @@ body
             opacity: 1;
             visibility: visible;
             transform: translateY(-105%);
+        }
+    }
+}
+
+#menu-user
+{
+    #menu-user-list
+    {
+        opacity: 0;
+        transition: all 0.15s;
+        visibility: hidden;
+        transform: translateY(100%);
+
+        &.is-visible
+        {
+            transition: all 0.15s;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(105%);
+        }
+    }
+}
+
+
+
+#menu-itemactions
+{
+    #menu-itemactions-list
+    {
+        opacity: 0;
+        transition: all 0.15s;
+        transform: translateY(-55%);
+
+        &.is-visible
+        {
+            transition: all 0.15s;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(-45%);
         }
     }
 }
