@@ -5,7 +5,7 @@ import './fonts.scss';
 import './custom-classes.scss';
 
 import iconEdit from './img/icon-edit.svg';
-import iconTrash from './img/icon-trash.svg';
+import iconTrash from './img/icon-trash-red.svg';
 import iconPoll from './img/icon-poll.svg';
 import iconCalendar from './img/icon-calendar.svg';
 import iconCross from './img/icon-cross-black.svg';
@@ -41,8 +41,8 @@ const filterByType = document.getElementById("filter-by-type");
 const menuUser = document.getElementById("menu-user");
 const menuUserList = document.getElementById("menu-user-list");
 const menuAddList = document.getElementById("menu-add-list");
-const menuItemActions = document.getElementById("menu-itemactions");
-const menuItemActionsList = document.getElementById("menu-itemactions-list");
+// const menuItemActions = document.querySelector(".menu-itemactions");
+// const menuItemActionsList = document.querySelector(".menu-itemactions-list");
 const detailsTitle = document.getElementById("details-title");
 const detailsBody = document.getElementById("details-body");
 const btnNewPoll = document.getElementById("btn-new-poll");
@@ -106,57 +106,77 @@ const showElems = (elems) => {
     if (elem.type === 'poll') {
       totalVotes = Object.values(elem.counters).reduce((acc, val) => acc + val, 0);
       li = `
-      <li class="${elem.type} elem-list-item bg-white h-60 p-5 rounded-md shadow-lg relative" id="${elem.id}">
-          <div class="card-header flex items-center mb-4">
-              <img src="${iconPoll}" alt="card-type" class="card-figure mr-4"/>
-              <span class="card-title font-blickb">${elem.questionTxt}</span>
-              <span class="font-blick font-normal antialiased ml-auto bg-amber-100">${totalVotes}</span>
-          </div>
-          <div class="card-body mb-4">
-              <span class="card-desc text-sm block mb-4 text-gray-400">Description à venir</span>
-              <span class="card-time text-xs block text-gray-400">Créé le ${formattedDate}</span>
-          </div>
-          <div class="card-footer flex items-center absolute bottom-5 left-5 right-5">
-            <span class="text-gray-400 block mr-2">ID:</span>
-            <button id="copy-id" class="text-sm text-gray-500 btn-secondary h-8 px-3 rounded-full">${elem.id}</button>
-          
-            <div class="flex ml-auto">
-              <button id="edit-user" class="btn-secondary mr-3 w-8 h-8 rounded-full relative">
-                <img src="${iconEdit}" alt="edit" class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 opacity-50"/>
-              </button>
-              <button id="delete-user" class="btn-secondary w-8 h-8 rounded-full relative">
-                <img src="${iconTrash}" alt="delete" class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 opacity-50"/>
-              </button>
-            </div>
+      <li id="${elem.id}" class="${elem.type} elem-list-item relative h-20 w-full bg-white border-b">
+        <div class="font-blickb elem-title text-sm text-gray-600 px-4 h-full float-left flex items-center w-4/12">
+          ${elem.questionTxt}
+        </div>
+        <div class="text-sm text-gray-600 px-4 h-full float-left flex items-center w-1/12">
+          <img src="${iconPoll}" alt="card-type">
+        </div>
+        <div class="text-sm text-gray-600 px-4 h-full float-left flex items-center w-3/12">
+          cesargreppin@gmail.com
+        </div>
+        <div class="text-sm text-gray-600 px-4 h-full float-left flex items-center w-1/12">
+        ${totalVotes}
+        </div>
+        <div class="relative h-full text-sm text-gray-600 px-4 absolute top-1/2 -translate-y-1/2 flex items-center">
+          <!--<button class="relative btn-white aspect-square h-8 rounded-md px-4 ml-auto mr-1" title="Télécharger résultats pour RS">
+            <img src="src/img/icon-download.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          </button>
+          <button class="relative btn-white aspect-square h-8 rounded-md px-4 mr-1" title="Aperçu">
+            <img src="src/img/icon-eye.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          </button>-->
+          <button id="copy-id" class="relative btn-white aspect-square h-8 rounded-md px-4 ml-auto mr-1" title="Copier l'URL">
+            <img src="src/img/icon-copy.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          </button>
+          <button id="edit-user" class="relative btn-white aspect-square h-8 rounded-md px-4 mr-1" title="Éditer">
+            <img src="${iconEdit}" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          </button>
+          <button id="delete-user" class="relative btn-white aspect-square h-8 rounded-md px-4" title="Supprimer">
+            <img src="${iconTrash}" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          </button>
+        </div>
       </li>
       `;
     }
     else if (elem.type === 'calendar') {
       totalVotes = null;
       li = `
-      <li class="${elem.type} elem-list-item bg-white h-60 p-5 rounded-md shadow-lg relative" id="${elem.id}">
-          <div class="card-header flex items-center mb-4">
-              <img src="${iconCalendar}" alt="card-type" class="card-figure mr-4"/>
-              <span class="card-title font-blickb">${elem.calName}</span>
-              <!--<span class="font-blick font-normal antialiased ml-auto bg-amber-100">${totalVotes}</span>-->
-          </div>
-          <div class="card-body mb-4">
-              <span class="card-desc text-sm block mb-4 text-gray-400">Description à venir</span>
-              <span class="card-time text-xs block text-gray-400">Créé le ${formattedDate}</span>
-          </div>
-          <div class="card-footer flex items-center absolute bottom-5 left-5 right-5">
-            <span class="text-gray-400 block mr-2">ID:</span>
-            <button id="copy-id" class="text-sm text-gray-500 btn-secondary h-8 px-3 rounded-full">${elem.id}</button>
-          
-            <div class="flex ml-auto">
-              <button id="edit-user" class="btn-secondary mr-3 w-8 h-8 rounded-full relative">
-                <img src="${iconEdit}" alt="edit" class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 opacity-50"/>
-              </button>
-              <button id="delete-user" class="btn-secondary w-8 h-8 rounded-full relative">
-                <img src="${iconTrash}" alt="delete" class="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 opacity-50"/>
-              </button>
-            </div>
-      </li>`;
+      
+      
+      
+      <li id="${elem.id}" class="${elem.type} elem-list-item relative h-20 w-full bg-white border-b">
+        <div class="font-blickb elem-title text-sm text-gray-600 px-4 h-full float-left flex items-center w-4/12">
+          ${elem.calName}
+        </div>
+        <div class="text-sm text-gray-600 px-4 h-full float-left flex items-center w-1/12">
+          <img src="${iconCalendar}" alt="card-type">
+        </div>
+        <div class="text-sm text-gray-600 px-4 h-full float-left flex items-center w-3/12">
+          cesargreppin@gmail.com
+        </div>
+        <div class="text-sm text-gray-600 px-4 h-full float-left flex items-center w-1/12">
+          <span class="text-gray-300">N/A</span>
+        </div>
+        <div class="relative h-full text-sm text-gray-600 px-4 absolute top-1/2 -translate-y-1/2 flex items-center">
+          <!--<button class="relative btn-white aspect-square h-8 rounded-md px-4 ml-auto mr-1" title="Télécharger résultats pour RS">
+            <img src="src/img/icon-download.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          </button>
+          <button class="relative btn-white aspect-square h-8 rounded-md px-4 mr-1" title="Aperçu">
+            <img src="src/img/icon-eye.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          </button>-->
+          <button id="copy-id" class="relative btn-white aspect-square h-8 rounded-md px-4 ml-auto mr-1" title="Copier l'URL">
+            <img src="src/img/icon-copy.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          </button>
+          <button id="edit-user" class="relative btn-white aspect-square h-8 rounded-md px-4 mr-1" title="Éditer">
+            <img src="${iconEdit}" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          </button>
+          <button id="delete-user" class="relative btn-white aspect-square h-8 rounded-md px-4" title="Supprimer">
+            <img src="${iconTrash}" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          </button>
+        </div>
+      </li>
+      `;
     }
 
     // let totalVotes = 0;
@@ -217,11 +237,7 @@ const elemListPressed = (event) => {
       deleteButtonPressed(id);
   } else if (button.id === "copy-id") {
       copyIdButtonPressed(id);
-  } else if (button.id === "btn-menu-itemactions") {
-      //editButtonPressed(id);
-      alert("menu item actions");
-  }
-  else {
+  } else {
       displayElemOnDetailsView(id);
       //toggleLeftAndRightViewsOnMobile();
   }
@@ -689,7 +705,7 @@ const copyIdButtonPressed = (id) => {
   try {
       document.execCommand("copy"); // Copy the text
       //alert("ID copied to clipboard: " + id);
-      alert("URL de l'Iframe copiée !");
+      alert("Url avec id " + id + " copiée !");
   } catch (error) {
       console.error("Failed to copy ID: ", error);
   }
@@ -879,8 +895,11 @@ const menuUserPressed = () => {
 
 const menuItemActionsPressed = () => {
   //console.log("menu item actions");
-
-  menuItemActionsList.classList.toggle("is-visible");
+  const closestLi = event.target.closest('li');
+  if (closestLi) {
+    closestLi.remove();
+  }
+  //menuItemActionsList.classList.toggle("is-visible");
 };
 
 
@@ -974,7 +993,7 @@ const search = (event) => {
   let x = document.getElementsByClassName('elem-list-item');
 
   for (let i = 0; i < x.length; i++) {
-      let title = x[i].querySelector('.card-title');
+      let title = x[i].querySelector('.elem-title');
       if (title && !title.innerHTML.toLowerCase().includes(input)) {
           x[i].style.display = "none";
       } else {
@@ -984,3 +1003,19 @@ const search = (event) => {
 };
 searchBar.addEventListener('keyup', search);
 
+
+
+
+//const menuItemActions = document.querySelector(".menu-itemactions");
+// const menuItemActionsList = document.querySelector(".menu-itemactions-list");
+
+
+// const menuItemActions = document.querySelectorAll(".menu-itemactions");
+// menuItemActions.forEach(item => {
+//   item.addEventListener("click", (event) => {
+//     const menuItemActionsList = event.target.closest('.menu-itemactions').querySelector('.menu-itemactions-list');
+//     if (menuItemActionsList) {
+//       menuItemActionsList.classList.toggle("is-visible");
+//     }
+//   });
+// });

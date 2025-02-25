@@ -41,14 +41,31 @@ body
 
 #elem-list
 {
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
+    // margin: auto;
+    // display: flex;
+    // flex-wrap: wrap;
     
-    li
+    // li
+    // {
+    //     flex: 0 0 calc((100% - 40px) / 3);
+    // } 
+    // li
+    // {
+    //     border-bottom: 1px solid;
+    // }
+
+    li 
     {
-        flex: 0 0 calc((100% - 40px) / 3);
-    } 
+        &:hover button 
+        {
+            opacity: 1;
+        }
+
+        button
+        {
+            opacity: 0.3;
+        }
+    }
 
 }
 
@@ -112,19 +129,6 @@ body
     
 }
 
-.btn-third
-{
-
-    background-color: transparent;
-    color: black;
-
-    &:hover
-    {
-        background-color: rgb(229, 231, 235);
-    }
-    
-}
-
 .btn-white
 {
     background-color: white;
@@ -175,9 +179,9 @@ body
 
 
 
-#menu-itemactions
+.menu-itemactions
 {
-    #menu-itemactions-list
+    .menu-itemactions-list
     {
         opacity: 0;
         transition: all 0.15s;

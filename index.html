@@ -121,7 +121,7 @@
 
     <!-- <div id="firebaseui-auth-container"></div> -->
     <!-- <p id="user-info" class="fixed text-xs text-gray-300 bottom-4 left-4 z-10">Vérification de l'état de connexion...</p> -->
-    <ul class="font-i max-w-5xl mx-auto mt-20 mb-20">
+    <!-- <ul class="font-i max-w-5xl mx-auto mt-20 mb-20">
       <li class="h-12 w-full bg-gray-200 rounded-t-lg">
         <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-4/12">Titre</div>
         <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-1/12">Type</div>
@@ -144,30 +144,40 @@
           58
         </div>
         <div class="relative h-full text-sm text-gray-600 px-4 absolute top-1/2 -translate-y-1/2 flex items-center">
-
-          
-          <div id="menu-itemactions" class="absolute right-4"> 
-            <button id="btn-menu-itemactions" class="relative btn-third aspect-square h-8 rounded-md px-4"><img src="src/img/icon-dots-vertical.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3.5 opacity-50"></button>
-            <ul id="menu-itemactions-list" class="absolute top-0 right-10 bg-white py-2 -top-4  w-60 right-0 rounded-xl shadow-lg text-xs">
-              <li id="" class="btn-white cursor-pointer h-10 flex items-center px-4">Iframe URL</li>
-              <li id="" class="btn-white cursor-pointer h-10 flex items-center px-4">Éditer</li>
-              <li id="" class="btn-white cursor-pointer h-10 flex items-center px-4">Aperçu</li>
-              <li id="" class="btn-white cursor-pointer h-10 flex items-center px-4">Vue RS</li>
-              <li id="" class="btn-white cursor-pointer h-10 flex items-center px-4">Supprimer</li>
-            </ul>
-          </div>
-
-
-          
+          <button class="relative btn-white aspect-square h-8 rounded-md px-4 ml-auto mr-1" title="Télécharger résultats pour RS">
+            <img src="src/img/icon-download.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50">
+          </button>
+          <button class="relative btn-white aspect-square h-8 rounded-md px-4 mr-1" title="Aperçu">
+            <img src="src/img/icon-eye.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50">
+          </button>
+          <button class="relative btn-white aspect-square h-8 rounded-md px-4 mr-1" title="Copier l'URL">
+            <img src="src/img/icon-copy.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50">
+          </button>
+          <button class="relative btn-white aspect-square h-8 rounded-md px-4 mr-1" title="Éditer">
+            <img src="src/img/icon-edit.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50">
+          </button>
+          <button class="relative btn-white aspect-square h-8 rounded-md px-4" title="Supprimer">
+            <img src="src/img/icon-trash-red.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50">
+          </button>
         </div>
       </li>
-    </ul>
+    </ul> -->
+
     <div id="app" class="max-w-5xl mx-auto">
       <div id="options" class="flex mb-8 w-96 relative">
         <img src="src/img/icon-manifier.svg" alt="" class="absolute top-1/2 -translate-y-1/2 left-4">
         <input id="searchbar" type="text" class="w-full h-14 rounded-full border-gray-300 bg-transparent border pl-14 pr-4" placeholder="Rechercher...">
       </div>
-      <ul id="elem-list" class="w-full gap-5">
+      <ul class="font-i max-w-5xl mx-auto">
+        <li class="h-12 w-full bg-gray-200 rounded-t-lg">
+          <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-4/12">Titre</div>
+          <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-1/12">Type</div>
+          <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-3/12">Auteur</div>
+          <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-1/12">Perf.</div>
+          <div class="text-xs text-gray-600 px-4 h-full float-right flex items-center"></div>
+        </li>
+      </ul>
+      <ul id="elem-list" class="w-full mb-48">
 
       </ul>
     </div>
