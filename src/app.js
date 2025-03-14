@@ -9,6 +9,8 @@ import iconTrash from './img/icon-trash-red.svg';
 import iconPoll from './img/icon-poll.svg';
 import iconCalendar from './img/icon-calendar.svg';
 import iconCross from './img/icon-cross-black.svg';
+import iconCopy from './img/icon-copy.svg'; 
+
 
 // document.addEventListener("DOMContentLoaded", () => {
 //   const questionTxt = document.getElementById("questionTxt");
@@ -20,6 +22,9 @@ import iconCross from './img/icon-cross-black.svg';
 const db = getFirestore();
 const dbRef = collection(db, "questions");
 
+// Add these date range variables
+const minDate = new Date().toISOString().split('T')[0];  // Today's date as minimum selectable date
+const maxDate = "2030-12-31";  // Maximum selectable date
 
 let elems = [];
 var nbAlreadyAnswers = 0;
@@ -27,7 +32,7 @@ const error = {};
 
 const header = document.querySelector('header');
 if (header) {
-  header.style.display = 'none';
+  // header.style.display = 'none';
 }
 const loginBox = document.getElementById('login-box');
 if (loginBox) {
@@ -36,6 +41,7 @@ if (loginBox) {
 
 //const userInfo = document.getElementById("user-info");
 const body = document.querySelector("body");
+const app = document.getElementById("app");
 const menuAdd = document.getElementById("menu-add");
 const filterByType = document.getElementById("filter-by-type");
 const menuUser = document.getElementById("menu-user");
@@ -73,7 +79,8 @@ export const getElems = async () => {
         elem.id = doc.id;
         elems.push(elem);
       });
-      console.log(elems);
+      // AFFICHAGE DES ELEMENTS
+      // console.log(elems);
       showElems(elems);
     });
   } catch (err) {
@@ -114,7 +121,7 @@ const showElems = (elems) => {
           <img src="${iconPoll}" alt="card-type">
         </div>
         <div class="text-sm text-gray-600 px-4 h-full float-left flex items-center w-3/12">
-          cesargreppin@gmail.com
+          ${elem.author}
         </div>
         <div class="text-sm text-gray-600 px-4 h-full float-left flex items-center w-1/12">
         ${totalVotes}
@@ -127,7 +134,7 @@ const showElems = (elems) => {
             <img src="src/img/icon-eye.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           </button>-->
           <button id="copy-id" class="relative btn-white aspect-square h-8 rounded-md px-4 ml-auto mr-1" title="Copier l'URL">
-            <img src="src/img/icon-copy.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <img src="${iconCopy}" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           </button>
           <button id="edit-user" class="relative btn-white aspect-square h-8 rounded-md px-4 mr-1" title="Éditer">
             <img src="${iconEdit}" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -153,7 +160,7 @@ const showElems = (elems) => {
           <img src="${iconCalendar}" alt="card-type">
         </div>
         <div class="text-sm text-gray-600 px-4 h-full float-left flex items-center w-3/12">
-          cesargreppin@gmail.com
+          ${elem.author}
         </div>
         <div class="text-sm text-gray-600 px-4 h-full float-left flex items-center w-1/12">
           <span class="text-gray-300">N/A</span>
@@ -166,7 +173,7 @@ const showElems = (elems) => {
             <img src="src/img/icon-eye.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           </button>-->
           <button id="copy-id" class="relative btn-white aspect-square h-8 rounded-md px-4 ml-auto mr-1" title="Copier l'URL">
-            <img src="src/img/icon-copy.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <img src="${iconCopy}" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           </button>
           <button id="edit-user" class="relative btn-white aspect-square h-8 rounded-md px-4 mr-1" title="Éditer">
             <img src="${iconEdit}" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -263,8 +270,7 @@ const elemListPressed = (event) => {
 // ------------------------------------------------------------
 const btnNewPollPressed = () => {
   type = "poll";
-  modalOverlay.style.display = "flex";
-  details.style.display = "block";
+  editionModeOn();
   modalOverlay.removeAttribute("elem-id");
   menuAddList.classList.remove("is-visible");
   nbAlreadyAnswers = 2;
@@ -294,8 +300,7 @@ const btnNewPollPressed = () => {
 
 const btnNewCalendarPressed = () => {
   type = "calendar";
-  modalOverlay.style.display = "flex";
-  details.style.display = "block";
+  editionModeOn();
   modalOverlay.removeAttribute("elem-id");
   menuAddList.classList.remove("is-visible");
   nbAlreadyAnswers = 2;
@@ -309,13 +314,13 @@ const btnNewCalendarPressed = () => {
     </div>
     <div class="input-group">
       <label class="block text-sm text-gray-400 mb-2">Date et nom de l'évènement</label>
-      <input type="date" id="date0" min="2018-01-01" max="2018-12-31" class="w-full h-12 rounded-md border px-4 mb-2">
+      <input type="date" id="date0" min="${minDate}" max="${maxDate}" class="w-full h-12 rounded-md border px-4 mb-2">
       <input type="text" id="name0" class="w-full h-12 rounded-md border px-4 mb-6" value="">
     </div>
     <div class="input-group">
       <label class="block text-sm text-gray-400 mb-2">Date et nom de l'évènement</label>
-      <input type="date" id="date0" min="2018-01-01" max="2018-12-31" class="w-full h-12 rounded-md border px-4 mb-2">
-      <input type="text" id="name0" class="w-full h-12 rounded-md border px-4 mb-6" value="">
+      <input type="date" id="date1" min="${minDate}" max="${maxDate}" class="w-full h-12 rounded-md border px-4 mb-2">
+      <input type="text" id="name1" class="w-full h-12 rounded-md border px-4 mb-6" value="">
     </div>
   `;
 
@@ -334,8 +339,7 @@ const btnNewCalendarPressed = () => {
 // ------------------------------------------------------------
 const editButtonPressed = (id) => {
   
-  modalOverlay.style.display = "flex";
-  details.style.display = "block";
+  editionModeOn();
   const elem = getElem(id);
   type = elem.type;
   console.log(type);
@@ -408,22 +412,6 @@ const editButtonPressed = (id) => {
   //   nbAlreadyAnswers++;
   // });
   
-  const deleteFieldBtn = document.querySelectorAll(".delete-field");
-  deleteFieldBtn.forEach(btn => {
-    btn.addEventListener("click", (event) => {
-      event.target.closest(".input-group").remove();
-    });
-  });
-  
-
-  
-  
-  
-  // answer0.value = elem.answers[0];
-  // answer1.value = elem.answers[1];
-  //answer2.value = elem.answers[2];
-
-
   modalOverlay.setAttribute("elem-id", elem.id);
 };
 
@@ -436,7 +424,7 @@ const addFieldBtnPressed = (event) => {
     case "poll":
       detailsBody.insertAdjacentHTML('beforeend', `
         <div class="input-group">
-          <label class="block text-sm text-gray-400 mb-2">Proposition ${nbAlreadyAnswers}</label>
+          <label class="block text-sm text-gray-400 mb-2">Proposition ${nbAlreadyAnswers}<span class="block delete-field cursor-pointer bg-gray-200 float-right translate-y-1 p-2"><img src="${iconCross}" alt="supprimer le champ" class="w-2"></span></label>
           <input type="text" id="answer${nbAlreadyAnswers}" class="w-full h-12 rounded-md border px-4 mb-6">
         </div>
       `);
@@ -444,8 +432,8 @@ const addFieldBtnPressed = (event) => {
     case "calendar":
       detailsBody.insertAdjacentHTML('beforeend', `
         <div class="input-group">
-          <label class="block text-sm text-gray-400 mb-2">Date et nom de l'évènement</label>
-          <input type="date" id="date${nbAlreadyAnswers}" class="w-full h-12 rounded-md border px-4 mb-2">
+          <label class="block text-sm text-gray-400 mb-2">Date et nom de l'évènement <span class="block delete-field cursor-pointer bg-gray-200 float-right translate-y-1 p-2"><img src="${iconCross}" alt="supprimer le champ" class="w-2"></span></label>
+          <input type="date" id="date${nbAlreadyAnswers}" min="${minDate}" max="${maxDate}" class="w-full h-12 rounded-md border px-4 mb-2">
           <input type="text" id="name${nbAlreadyAnswers}" class="w-full h-12 rounded-md border px-4 mb-6">
         </div>
       `);
@@ -510,7 +498,7 @@ const saveButtonPressed = async () => {
                 //dateModified: new Date().toLocaleDateString('fr-FR')
               }, { merge: true });
     
-            hideModal();
+            editionModeOff();
           } catch (e) {
             setErrorMessage(
               "error",
@@ -548,7 +536,7 @@ const saveButtonPressed = async () => {
               
             });
     
-            hideModal();
+            editionModeOff();
           } catch (err) {
             setErrorMessage(
               "error",
@@ -593,7 +581,7 @@ const saveButtonPressed = async () => {
                 }
               });
 
-              alert('ici');
+              //alert('ici');
               await updateDoc(docRef, {
                 calName: questionTxt.value,
                 dates: x.map((event, i) => ({ date: event.date, event: event.name })),
@@ -602,7 +590,7 @@ const saveButtonPressed = async () => {
                 timeUpdated: new Date().toISOString().slice(2, 10).replace(/-/g, ''),
               }, { merge: true });
     
-            hideModal();
+            editionModeOff();
           } catch (e) {
             setErrorMessage(
               "error",
@@ -648,7 +636,7 @@ const saveButtonPressed = async () => {
               
             });
     
-            // hideModal();
+            editionModeOff();
           } catch (err) {
             // setErrorMessage(
             //   "error",
@@ -671,8 +659,7 @@ const saveButtonPressed = async () => {
 // CLOSE DETAILS
 // ------------------------------------------------------------
 const closeButtonPressed = () => {
-  modalOverlay.style.display = "none";
-  details.style.display = "none";
+  editionModeOff();
 };
 
 
@@ -697,19 +684,27 @@ const deleteButtonPressed = async (id) => {
 // COPY ID TO CLIPBOARD
 // ------------------------------------------------------------
 const copyIdButtonPressed = (id) => {
+  const elem = getElem(id);
+  const baseUrl = "https://storytelling.blick.ch/fr/__is_embed_somewhere/";
+  
+  // Generate different URLs based on type
+  const fullUrl = elem.type === 'poll' 
+    ? `${baseUrl}bl-tools-client-quiz/?questionDoc=${id}`
+    : `${baseUrl}bl-tools-client-calendar/?calendarDoc=${id}`;
+
   // Create a temporary textarea element
   const tempInput = document.createElement("textarea");
-  tempInput.value = `https://storytelling.blick.ch/fr/__is_embed_somewhere/bl-tool-client-quiz/?questionDoc=${id}`; // Set the value to the full URL
-  document.body.appendChild(tempInput); // Append to the body
-  tempInput.select(); // Select the text
+  tempInput.value = fullUrl;
+  document.body.appendChild(tempInput);
+  tempInput.select();
+  
   try {
-      document.execCommand("copy"); // Copy the text
-      //alert("ID copied to clipboard: " + id);
-      alert("Url avec id " + id + " copiée !");
+    document.execCommand("copy");
+    alert(`URL ${elem.type === 'poll' ? 'du sondage' : 'du calendrier'} copiée !`);
   } catch (error) {
-      console.error("Failed to copy ID: ", error);
+    console.error("Failed to copy URL: ", error);
   }
-  document.body.removeChild(tempInput); // Clean up by removing the element
+  document.body.removeChild(tempInput);
 };
 
 
@@ -851,24 +846,34 @@ const showErrorMessages = () => {
 // ------------------------------------------------------------
 // VARIOUS
 // ------------------------------------------------------------
-const showDetails = (event) => {
-  // details.classList.remove("is-hidden");
+// const showDetails = (event) => {
+//   details.style.display = "block";
+// };
+// const hideDetails = (event) => {
+//   details.classList.add("is-hidden");
+//   details.style.display = "none";
+// };
+
+const editionModeOn = function() {
+  modalOverlay.style.display = "flex";
   details.style.display = "block";
-};
-const hideDetails = (event) => {
-  details.classList.add("is-hidden");
-  details.style.display = "none";
+  details.classList.add('overflow-y-auto');
+  body.classList.add('overflow-hidden');
 };
 
-const hideModal = (e) => {
+const editionModeOff = (e) => {
   if (e instanceof Event) {
     if (e.target === e.currentTarget) {
       modalOverlay.style.display = "none";
       details.style.display = "none";
+      details.classList.remove('overflow-y-auto');
+      body.classList.remove('overflow-hidden');
     }
   } else {
     modalOverlay.style.display = "none";
     details.style.display = "none";
+    details.classList.remove('overflow-y-auto');
+    body.classList.remove('overflow-hidden');
   }
 };
 
@@ -924,6 +929,18 @@ export const clearElems = () => {
   elemList.innerHTML = "";
 }
 
+export const showApp = () => {
+  if (app) {
+    app.style.display = 'block';
+  }
+}
+
+export const hideApp = () => {
+  if (app) {
+    app.style.display = 'none';
+  }
+}
+
 export const showLoginBox = () => {
   if (loginBox) {
     loginBox.style.display = 'block';
@@ -972,7 +989,7 @@ menuUser.addEventListener("click", menuUserPressed);
 btnNewPoll.addEventListener("click", btnNewPollPressed);
 btnNewCalendar.addEventListener("click", btnNewCalendarPressed);
 closeBtn.addEventListener("click", closeButtonPressed);
-modalOverlay.addEventListener("click", hideModal);
+modalOverlay.addEventListener("click", editionModeOff);
 saveBtn.addEventListener("click", saveButtonPressed);
 menuUserList.addEventListener("mouseleave", () => {
   menuUserList.classList.remove("is-visible");
@@ -1019,3 +1036,12 @@ searchBar.addEventListener('keyup', search);
 //     }
 //   });
 // });
+
+// Add this event listener to detailsBody instead
+detailsBody.addEventListener("click", (event) => {
+  if (event.target.closest(".delete-field")) {
+    event.target.closest(".input-group").remove();
+  }
+});
+
+

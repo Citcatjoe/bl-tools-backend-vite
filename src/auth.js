@@ -1,7 +1,7 @@
 
 import { signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "./firebase-sdk"; // Importer l'authentification depuis firebase-sdk.js
-import { showAddBtn, hideAddBtn, showLoginBox, hideLoginBox, showHeader, hideHeader, getElems, clearElems } from './app'; // Importer la fonction getElems depuis app.js
+import { showAddBtn, hideAddBtn, showLoginBox, hideLoginBox, showHeader, hideHeader, getElems, clearElems, showApp, hideApp } from './app'; // Importer la fonction getElems depuis app.js
 
 
 
@@ -71,16 +71,18 @@ loginButton.addEventListener("click", () => {
     if (user) {
       console.log("Utilisateur connecté :", user);
       userInfoElement.innerText = `Connecté en tant que : ${user.email}`;
-      showHeader(); 
+      // showHeader(); 
+      showApp();
       hideLoginBox(); 
-      showAddBtn();
+      // showAddBtn();
       getElems();  
     } else { 
       console.log("Aucun utilisateur connecté");
       userInfoElement.innerText = "Aucun utilisateur connecté";
-      hideHeader();
+      // hideHeader();
+      hideApp();
       showLoginBox();
-      hideAddBtn();
+      // hideAddBtn();
       clearElems();
     }
   });

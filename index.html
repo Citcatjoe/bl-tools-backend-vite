@@ -10,98 +10,17 @@
     <!-- <link rel="stylesheet" href="src/style.css" /> -->
     <!-- <link rel="stylesheet" href="css/main.css" /> -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Vite App</title>
+    <title>Vite App</title> 
   </head>
-  <body class="bg-gray-100 pt-48 font-i is-hidden">
+  <body class="bg-gray-100 font-i is-hidden mb-48">
 
-    <header class="w-full h-20 bg-white fixed top-0 border-b z-20">
-      <img src="src/img/blick-tools-logo.svg" alt="logo blick tools" class="mx-auto absolute top-1/2 -translate-y-1/2 left-4">
-      <ul id="filter-by-type" class="absolute font-blickr left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex gap-10">
-        <li id="filter-by-type-all" class="font-blickb cursor-pointer">Tous</li>
-        <li id="filter-by-type-poll" class="cursor-pointer">Sondage</li>
-        <li id="filter-by-type-calendar" class="cursor-pointer">Calendrier</li>
-      </ul>
-      <!-- <ul class="absolute right-4 top-1/2 -translate-y-1/2 flex">
-        <li><button id="logout" class="btn btn-secondary">Déconnexion</button></li>
-      </ul> -->
-      <div id="menu-user" class="absolute right-0 h-full aspect-square">
-        <button class="btn-white btn-secondary h-full aspect-square border-l">
-          <img src="src/img/icon-user.svg" alt="Icon-add" class="absolute w-5 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-        </button>
-        <ul id="menu-user-list" class="absolute bg-white py-2 -bottom-4 w-60 right-4 rounded-xl shadow-lg">
-          <li id="user-info" class="text-sm text-gray-400 border-b h-16 flex items-center px-4"></li>
-          <li id="logout" class="btn-white cursor-pointer  h-12 flex items-center px-4">Déconnexion</li>
-        </ul>
-      </div>
-    </header>
+    
 
-    <div id="menu-add" class="fixed bottom-6 right-6">
-      <button class="add-btn h-16 w-16 rounded-full btn-primary shadow-lg">
-        <img src="src/img/icon-add.svg" alt="Icon-add" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-      </button>
-      <ul id="menu-add-list" class="absolute bg-white py-2 -top-4  w-60 right-0 rounded-xl shadow-lg">
-        <li id="btn-new-poll" class="btn-white cursor-pointer h-12 flex items-center px-4">Nouveau sondage</li>
-        <li id="btn-new-calendar" class="btn-white cursor-pointer  h-12 flex items-center px-4">Nouveau calendrier</li>
-      </ul>
-    </div>
+    
 
-    <div id="modal-overlay" class="fixed top-0 bottom-0 left-0 right-0 z-10 hidden">
-      <!-- <div id="modal" class="modal-question absolute w-96 bg-white p-5 rounded-md shadow-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div class="modal-header">
-              <h2>Modal question title</h2>
-          </div>
-          <ul id="error-label"></ul>
-          <div class="modal-content">
-              <div class="row">
-                  <div class="input-group">
-                      <label class="block text-sm text-gray-400 mb-2">Question</label>
-                      <input type="text" id="questionTxt" class="w-full h-12 rounded-md border px-4 mb-6">
-                  </div>
-                  <div class="input-group">
-                      <label class="block text-sm text-gray-400 mb-2">Answer 0</label>
-                      <input type="text" id="answer0" class="w-full h-12 rounded-md border px-4 mb-6">
-                  </div>
-                  <div class="input-group">
-                      <label class="block text-sm text-gray-400 mb-2">Answer 1</label>
-                      <input type="text" id="answer1" class="w-full h-12 rounded-md border px-4 mb-6">
-                  </div>
-                  <div class="input-group">
-                      <label class="block text-sm text-gray-400 mb-2">Answer 2</label>
-                      <input type="text" id="answer2" class="w-full h-12 rounded-md border px-4 mb-6">
-                  </div>
-                  
-              </div>
+    
 
-             
-
-
-
-          </div>
-          <div class="modal-footer flex gap-3">
-             
-              <button id="close-btn" class="w-full h-12 rounded-md px-4 bg-gray-200">Annuler</button>
-              <button id="save-btn" class="text-white bg-blick w-full h-12 rounded-md px-4 bg-gray-100">Sauver</button>
-          </div>
-      </div> -->
-    </div>
-
-    <div id="details" class="fixed bg-white w-96 top-20 bottom-0 right-0 shadow-lg p-5 z-10">
-      <div id="details-header" class=" bg-gray-200 -mt-5 -ml-5 -mr-5 px-5 py-5 mb-8">
-        <span id="details-title" class="text-black text-lg font-semibold">Titre de la colonne</span>
-      </div>
-      
-      <div id="details-body">
-      
-      </div>
-      <ul id="error-label"></ul>
-      <button id="add-field-btn" class="btn btn-secondary">
-        <img src="src/img/icon-plus-black.svg" alt="Ajouter un champ" class="w-3 mx-auto">
-      </button>
-      <div id="details-footer" class="absolute bg-white bottom-0 left-0 right-0 p-5 flex gap-3 border-t border-gray-200">
-        <button id="close-btn" class="btn btn-secondary">Annuler</button>
-        <button id="save-btn" class="btn btn-primary">Sauver</button>
-      </div>
-    </div>
+    
  
 
     <div id="login-box" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -163,23 +82,73 @@
       </li>
     </ul> -->
 
-    <div id="app" class="max-w-5xl mx-auto">
-      <div id="options" class="flex mb-8 w-96 relative">
-        <img src="src/img/icon-manifier.svg" alt="" class="absolute top-1/2 -translate-y-1/2 left-4">
-        <input id="searchbar" type="text" class="w-full h-14 rounded-full border-gray-300 bg-transparent border pl-14 pr-4" placeholder="Rechercher...">
+    <div id="app" class="">
+      <header class="w-full h-20 bg-white fixed top-0 border-b z-20">
+        <img src="src/img/blick-tools-logo.svg" alt="logo blick tools" class="mx-auto absolute top-1/2 -translate-y-1/2 left-4">
+        <ul id="filter-by-type" class="absolute font-blickr left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex gap-10">
+          <li id="filter-by-type-all" class="font-blickb cursor-pointer">Tous</li>
+          <li id="filter-by-type-poll" class="cursor-pointer">Sondage</li>
+          <li id="filter-by-type-calendar" class="cursor-pointer">Calendrier</li>
+        </ul>
+        <div id="menu-user" class="absolute right-0 h-full aspect-square">
+          <button class="btn-white btn-secondary h-full aspect-square border-l">
+            <img src="src/img/icon-user.svg" alt="Icon-add" class="absolute w-5 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          </button>
+          <ul id="menu-user-list" class="absolute bg-white py-2 -bottom-4 w-60 right-4 rounded-xl shadow-lg">
+            <li id="user-info" class="text-sm text-gray-400 border-b h-16 flex items-center px-4"></li>
+            <li id="logout" class="btn-white cursor-pointer  h-12 flex items-center px-4">Déconnexion</li>
+          </ul>
+        </div>
+      </header>
+      <div id="menu-add" class="fixed bottom-6 right-6 z-10">
+        <button class="add-btn h-16 w-16 rounded-full btn-primary shadow-lg relative">
+          <img src="src/img/icon-add.svg" alt="Icon-add" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        </button>
+        <ul id="menu-add-list" class="absolute bg-white py-2 -top-4  w-60 right-0 rounded-xl shadow-lg">
+          <li id="btn-new-poll" class="btn-white cursor-pointer h-12 flex items-center px-4">Nouveau sondage</li>
+          <li id="btn-new-calendar" class="btn-white cursor-pointer  h-12 flex items-center px-4">Nouveau calendrier</li>
+        </ul>
       </div>
-      <ul class="font-i max-w-5xl mx-auto">
-        <li class="h-12 w-full bg-gray-200 rounded-t-lg">
-          <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-4/12">Titre</div>
-          <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-1/12">Type</div>
-          <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-3/12">Auteur</div>
-          <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-1/12">Perf.</div>
-          <div class="text-xs text-gray-600 px-4 h-full float-right flex items-center"></div>
-        </li>
-      </ul>
-      <ul id="elem-list" class="w-full mb-48">
+      <div class="pt-48 max-w-5xl mx-auto">
+      <div id="modal-overlay" class="fixed top-0 bottom-0 left-0 right-0 z-10 hidden">
+      </div>
+      <div id="details" class="fixed bg-white w-96 top-20 bottom-0 right-0 shadow-lg p-5 z-10">
+        <div id="details-header" class=" bg-gray-200 -mt-5 -ml-5 -mr-5 px-5 py-5 mb-8">
+          <span id="details-title" class="text-black text-lg font-semibold">Titre de la colonne</span>
+        </div>
+        
+        <div id="details-body">
+        
+        </div>
+        <ul id="error-label"></ul>
+        <button id="add-field-btn" class="btn btn-secondary mb-24">
+          <img src="src/img/icon-plus-black.svg" alt="Ajouter un champ" class="w-3 mx-auto">
+        </button>
+        <div id="details-footer" class="fixed w-96 bg-white bottom-0 right-0 p-5 flex gap-3 border-t border-gray-200">
+          <button id="close-btn" class="btn btn-secondary">Annuler</button>
+          <button id="save-btn" class="btn btn-primary">Sauver</button>
+        </div>
+      </div>
 
-      </ul>
+      
+        <div id="options" class="flex mb-8 w-96 relative">
+          <img src="src/img/icon-manifier.svg" alt="" class="absolute top-1/2 -translate-y-1/2 left-4">
+          <input id="searchbar" type="text" class="w-full h-14 rounded-full border-gray-300 bg-transparent border pl-14 pr-4" placeholder="Rechercher...">
+        </div>
+        <ul class="font-i">
+          <li class="h-12 w-full bg-gray-200 rounded-t-lg">
+            <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-4/12">Titre</div>
+            <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-1/12">Type</div>
+            <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-3/12">Auteur</div>
+            <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-1/12">Perf.</div>
+            <div class="text-xs text-gray-600 px-4 h-full float-right flex items-center"></div>
+          </li>
+        </ul>
+        <ul id="elem-list" class="w-full">
+
+        </ul>
+
+      </div>
     </div>
     
     <script type="module" src="/src/firebase-sdk.js"></script>
