@@ -98,7 +98,7 @@ const showElems = (elems) => {
   // Sort elems by timeCreated in descending order
   elems.sort((a, b) => parseInt(b.timeCreated) - parseInt(a.timeCreated));
 
-  elems.forEach((elem) => {
+  elems.filter(elem => !elem.deleted).forEach((elem) => {
     const formatDate = (dateStr) => {
       const year = dateStr.slice(0, 2);
       const month = dateStr.slice(2, 4);
@@ -668,8 +668,12 @@ const deleteButtonPressed = async (id) => {
   if (isConfirmed) {
     //alert(id);
     try {
+      // const docRef = doc(db, "questions", id);
+      // await deleteDoc(docRef);
       const docRef = doc(db, "questions", id);
-      await deleteDoc(docRef);
+      await updateDoc(docRef, {
+        deleted: true
+      },{ merge: true });
     } catch (e) {
       setErrorMessage(
         "error",
