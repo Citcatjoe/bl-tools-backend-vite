@@ -1,0 +1,87 @@
+- Desk mercredi. Voir avec Marc Etienne Mathilde
+- Sport : écrire à deux et leur montrer
+
+
+Call react dans le site
+Bouton sexy long format into article
+
+
+- convférence pro ux ouß code
+
+
+
+- check datalayer calendar et poll
+- limit data layer id ??
+- click on global link par exemple.... 
+
+
+
+<script>window.blickDataLayer = [];</script>
+
+a la fin de laffichage : 
+
+// window.blickDataLayer.push({
+      const iframeId = "storytelling_POLL_" + questionDoc;
+      window.blickDataLayer.push({
+          event: "iframe_impression",  
+          iframe_name: iframeId,
+          iframe_id: "iframe_impression"
+      });
+
+
+
+au click
+
+const iframeId = "storytelling_POLL_" + questionDoc;
+        //alert(iframeId);
+        window.blickDataLayer.push({
+            event: "iframe_click",
+            iframe_name: iframeId,
+            iframe_id: "iframe_link1_clicked"
+        });
+
+
+27 mai écrit 14 juillet format
+Ouverture
+- tablée avec protagoniste -> portrait textuel au clic (carte ? fenetre ? popup ? )
+- Dans le dossier présentation cluedo
+
+La montagne qui rend fou
+- partie pauvre niveau images/vidéos ??
+- un truc sur la création des clubs alpins ? Intwerview d'un Monsieur Tissot? Image
+- Animation sur date de conquête du cervin
+- Animation map sur date de conquete du cervin
+- Citation
+- Vidéo Christophe tissot
+
+A l'assaut du Cervin
+- Image avec point d'intérêt -> poplet corde, corde...
+- Video qui se déroule sur fond blanc
+
+L'honneur perdu de la famille taugwalder
+- images
+- coupure de press
+
+160 ans après, les nouveaux conquérents
+- nb morts par montagne dont cervin
+- comparer diffculté et nb mort europe
+- ON sait pas quoi coparer... à rfléchir par l'équipe..
+
+
+WTF TIMELINE ???? Pour le moment
+Element de titre
+Héberger ou ???
+
+Longueur encardé dans l'intro ??
+Format stop motion du oerdqnt .. horizontal ou verticla ???
+INtégrer video inox tag dans le dernier chapitre
+INtégrer video taug walder chapitre 
+
+Jeudi soir prochain
+
+
+        
+
+
+
+

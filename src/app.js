@@ -59,6 +59,9 @@ const modalOverlay = document.getElementById("modal-overlay");
 const details = document.getElementById("details");
 const closeBtn = document.getElementById("close-btn");
 const saveBtn = document.getElementById("save-btn");
+// const linkGlobalTxt = document.getElementById("link-global-txt");
+// const linkGlobalHref = document.getElementById("link-global-href");
+// const linkGlobalNewTab = document.getElementById("link-global-new-tab");
 
 let type = "";
 
@@ -312,12 +315,27 @@ const btnNewCalendarPressed = () => {
       <label class="block text-sm text-gray-400 mb-2">Nom du calendrier</label>
       <input type="text" id="questionTxt" class="w-full h-12 rounded-md border px-4 mb-6" value="">
     </div>
-    <div class="input-group">
+
+    <div class="input-group input-group-link-global">
+      <label class="block text-sm text-gray-400 mb-2">Ajout d'un lien global au calendrier</label>
+      <div class="grid grid-cols-2 gap-4 mb-6">
+        <input type="text" id="link-global-txt" class="w-full h-12 rounded-md border px-4" placeholder="Texte">
+        <input type="text" id="link-global-href" class="w-full h-12 rounded-md border px-4" placeholder="URL">
+      </div>
+      <div class="col-span-2  mb-6">
+        <label class="flex items-center text-sm text-gray-400">
+          <input type="checkbox" id="link-global-new-tab" class="mr-2">
+          Ouvrir dans un nouvel onglet
+        </label>
+      </div>
+    </div>
+
+    <div class="input-group date">
       <label class="block text-sm text-gray-400 mb-2">Date et nom de l'évènement</label>
       <input type="date" id="date0" min="${minDate}" max="${maxDate}" class="w-full h-12 rounded-md border px-4 mb-2">
       <input type="text" id="name0" class="w-full h-12 rounded-md border px-4 mb-6" value="">
     </div>
-    <div class="input-group">
+    <div class="input-group date">
       <label class="block text-sm text-gray-400 mb-2">Date et nom de l'évènement</label>
       <input type="date" id="date1" min="${minDate}" max="${maxDate}" class="w-full h-12 rounded-md border px-4 mb-2">
       <input type="text" id="name1" class="w-full h-12 rounded-md border px-4 mb-6" value="">
@@ -375,18 +393,31 @@ const editButtonPressed = (id) => {
           <label class="block text-sm text-gray-400 mb-2">Nom du calendrier</label>
           <input type="text" id="questionTxt" class="w-full h-12 rounded-md border px-4 mb-6" value="${elem.calName}">
         </div>
+
+        <div class="input-group input-group-link-global">
+          <label class="block text-sm text-gray-400 mb-2">Ajout d'un lien global au calendrier</label>
+          <div class="grid grid-cols-2 gap-4 mb-6">
+            <input type="text" id="link-global-txt" class="w-full h-12 rounded-md border px-4" placeholder="Texte" value="${elem.linkGlobalTxt || ''}">
+            <input type="text" id="link-global-href" class="w-full h-12 rounded-md border px-4" placeholder="URL" value="${elem.linkGlobalHref || ''}">
+          </div>
+          <div class="col-span-2  mb-6">
+            <label class="flex items-center text-sm text-gray-400">
+              <input type="checkbox" id="link-global-new-tab" class="mr-2" ${elem.linkGlobalNewTab ? 'checked' : ''}>
+              Ouvrir dans un nouvel onglet
+            </label>
+          </div>
+        </div>
       `;
       elem.dates.forEach((event, index) => {
         detailsBody.insertAdjacentHTML('beforeend', `
-        <div class="input-group">
+        <div class="input-group date">
           <label class="block text-sm text-gray-400 mb-2">Date et nom de l'évènement ${index}<span class="block delete-field cursor-pointer bg-gray-200 float-right translate-y-1 p-2"><img src="${iconCross}" alt="supprimer le champ" class="w-2"></span></label>
           <input type="date" id="date${index}" class="w-full h-12 rounded-md border px-4 mb-2" value="${event.date}">
           <input type="text" id="name${index}" class="w-full h-12 rounded-md border px-4 mb-6" value="${event.event}">
         </div>
         `);
         nbAlreadyAnswers++;
-        const questionTxt = document.getElementById("questionTxt");
-        questionTxt.value = elem.calName;
+        
       });
       break;
     default:
@@ -431,7 +462,7 @@ const addFieldBtnPressed = (event) => {
       break;
     case "calendar":
       detailsBody.insertAdjacentHTML('beforeend', `
-        <div class="input-group">
+        <div class="input-group date">
           <label class="block text-sm text-gray-400 mb-2">Date et nom de l'évènement <span class="block delete-field cursor-pointer bg-gray-200 float-right translate-y-1 p-2"><img src="${iconCross}" alt="supprimer le champ" class="w-2"></span></label>
           <input type="date" id="date${nbAlreadyAnswers}" min="${minDate}" max="${maxDate}" class="w-full h-12 rounded-md border px-4 mb-2">
           <input type="text" id="name${nbAlreadyAnswers}" class="w-full h-12 rounded-md border px-4 mb-6">
@@ -559,34 +590,29 @@ const saveButtonPressed = async () => {
           try {
               
               
-              const fields = document.querySelectorAll("#details-body .input-group");
+              const fields = document.querySelectorAll("#details-body .input-group.date");
               const x = [];  
     
               fields.forEach((field, index) => {
-                if (index !== 0) {
-  
-                  const input1Value = field.querySelector("input[type='date']").value;
-                  const input2Value = field.querySelector("input[type='text']").value;
-                  if (input1Value && input2Value) {
-                    x.push({ date: input1Value, name: input2Value });
-                  }
-                  
-                  
-  
-  
-                    // if (inputValue) {
-                    // x.push(inputValue);
-                    // y.push(0);
-                    // }
+                const input1Value = field.querySelector("input[type='date']").value;
+                const input2Value = field.querySelector("input[type='text']").value;
+                if (input1Value && input2Value) {
+                  x.push({ date: input1Value, name: input2Value });
                 }
               });
 
-              //alert('ici');
+              const questionTxt = document.getElementById("questionTxt");
+              // Get the link global elements within the form
+              const linkGlobalTxtInput = document.getElementById('link-global-txt');
+              const linkGlobalHrefInput = document.getElementById('link-global-href'); 
+              const linkGlobalNewTabInput = document.getElementById('link-global-new-tab');
+
               await updateDoc(docRef, {
                 calName: questionTxt.value,
                 dates: x.map((event, i) => ({ date: event.date, event: event.name })),
-                // answers: x,
-                // counters: y,
+                linkGlobalTxt: linkGlobalTxtInput ? linkGlobalTxtInput.value : '',
+                linkGlobalHref: linkGlobalHrefInput ? linkGlobalHrefInput.value : '',
+                linkGlobalNewTab: linkGlobalNewTabInput ? linkGlobalNewTabInput.checked : false,
                 timeUpdated: new Date().toISOString().slice(2, 10).replace(/-/g, ''),
               }, { merge: true });
     
@@ -602,12 +628,11 @@ const saveButtonPressed = async () => {
           // SAUVEGARDE D'UN CALENDAR QUI N'EXISTE PAS ENCORE
           try {
             // alert(answer0.value);
-            const fields = document.querySelectorAll("#details-body .input-group");
+            const fields = document.querySelectorAll("#details-body .input-group.date");
     
             const x = [];
             //alert(questionTxt.value);
             fields.forEach((field, index) => {
-              if (index !== 0) {
 
                 const input1Value = field.querySelector("input[type='date']").value;
                 const input2Value = field.querySelector("input[type='text']").value;
@@ -622,11 +647,19 @@ const saveButtonPressed = async () => {
                   // x.push(inputValue);
                   // y.push(0);
                   // }
-              }
+              
             });
             console.log(x);
+
+            const linkGlobalTxtInput = document.getElementById('link-global-txt');
+            const linkGlobalHrefInput = document.getElementById('link-global-href'); 
+            const linkGlobalNewTabInput = document.getElementById('link-global-new-tab');
+
             await addDoc(dbRef, {
               calName: questionTxt.value,
+              linkGlobalTxt: linkGlobalTxtInput ? linkGlobalTxtInput.value : '',
+              linkGlobalHref: linkGlobalHrefInput ? linkGlobalHrefInput.value : '',
+              linkGlobalNewTab: linkGlobalNewTabInput ? linkGlobalNewTabInput.checked : false,
               dates: x.map((event, i) => ({ date: event.date, event: event.name })),
               // answers: x,
               // counters: y,
@@ -665,7 +698,7 @@ const closeButtonPressed = () => {
 
 const deleteButtonPressed = async (id) => {
   const isConfirmed = confirm("Cet élément sera définitivement perdu. Voulez-vous continuer?");
-  if (isConfirmed) {
+  if (isConfirmed) { 
     //alert(id);
     try {
       // const docRef = doc(db, "questions", id);

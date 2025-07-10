@@ -2,99 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="./assets/vite-iLTtyYub.svg" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blick Tools</title>  
+    <meta name="title" content="Blick Tools">
+    <meta name="description" content="Blick Tools">
+    <meta property="og:image" content="/blick-tools-og.jpg">
+    <meta property="og:title" content="Blick Tools">
+    <meta property="og:description" content="Blick Tools">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="src/style.css" /> -->
     <!-- <link rel="stylesheet" href="css/main.css" /> -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Vite App</title>
-    <script type="module" crossorigin src="./assets/index-BwKqnGne.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-CvDBiSII.css">
+    
+    <script type="module" crossorigin src="./assets/index-twO_RCAr.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BzwgpBOJ.css">
   </head>
-  <body class="bg-gray-100 pt-48 font-i is-hidden">
-    <header class="w-full h-20 bg-white fixed top-0 shadow-lg z-20">
-      <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='53.889'%20height='53.889'%20viewBox='0%200%2053.889%2053.889'%3e%3cg%20id='Groupe_15'%20data-name='Groupe%2015'%20transform='translate(-116.056%20-2534.056)'%3e%3crect%20id='Rectangle_121'%20data-name='Rectangle%20121'%20width='44'%20height='44'%20rx='10'%20transform='matrix(0.966,%200.259,%20-0.259,%200.966,%20127.444,%202534.056)'%20fill='%23e2271b'/%3e%3cg%20id='Groupe_11'%20data-name='Groupe%2011'%20transform='translate(-436.844%203005.052)'%3e%3cpath%20id='Blick_Logo_Rot_RGB'%20d='M12,18.376H7.062V24H12a2.81,2.81,0,1,0,0-5.619M10.947,8.311H7.062V13.7h3.885a2.692,2.692,0,1,0,0-5.384M22.128,21.536a8.686,8.686,0,0,1-8.71,8.661H0V2.108H12.477a8.217,8.217,0,0,1,8.24,8.194,8.118,8.118,0,0,1-1.528,4.75,8.621,8.621,0,0,1,2.94,6.486'%20transform='translate(568.78%20-460.205)'%20fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e" alt="logo blick tools" class="mx-auto absolute top-1/2 -translate-y-1/2 left-4">
-      <ul class="absolute right-4 top-1/2 -translate-y-1/2 flex">
-        <li><button id="logout" class="btn btn-secondary">Déconnexion</button></li>
-      </ul>
-    </header>
+  <body class="bg-gray-100 font-i is-hidden mb-48">
 
-    <div id="menu-add" class="fixed bottom-6 right-6">
-      <button class="add-btn h-16 w-16 rounded-full btn-primary shadow-lg">
-        <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='19'%20height='19'%20viewBox='0%200%2019%2019'%3e%3cg%20id='Groupe_20'%20data-name='Groupe%2020'%20transform='translate(-1186%20-684)'%3e%3crect%20id='Rectangle_114'%20data-name='Rectangle%20114'%20width='3'%20height='19'%20rx='1.5'%20transform='translate(1205%20692)%20rotate(90)'%20fill='%23fff'/%3e%3crect%20id='Rectangle_115'%20data-name='Rectangle%20115'%20width='3'%20height='19'%20rx='1.5'%20transform='translate(1197%20703)%20rotate(180)'%20fill='%23fff'/%3e%3c/g%3e%3c/svg%3e" alt="Icon-add" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-      </button>
-      <ul id="menu-add-list" class="absolute bg-white py-2 -top-4  w-60 right-0 rounded-xl shadow-lg">
-        <li id="btn-new-poll" class="btn-white cursor-pointer h-12 flex items-center px-4">Nouveau sondage</li>
-        <li id="btn-new-calendar" class="btn-white cursor-pointer  h-12 flex items-center px-4 hidden">Nouveau calendrier</li>
-      </ul>
-    </div>
     
-    <!-- MODAL -->
 
-    <div id="modal-overlay" class="fixed top-0 bottom-0 left-0 right-0 z-10 hidden">
-      <!-- <div id="modal" class="modal-question absolute w-96 bg-white p-5 rounded-md shadow-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div class="modal-header">
-              <h2>Modal question title</h2>
-          </div>
-          <ul id="error-label"></ul>
-          <div class="modal-content">
-              <div class="row">
-                  <div class="input-group">
-                      <label class="block text-sm text-gray-400 mb-2">Question</label>
-                      <input type="text" id="questionTxt" class="w-full h-12 rounded-md border px-4 mb-6">
-                  </div>
-                  <div class="input-group">
-                      <label class="block text-sm text-gray-400 mb-2">Answer 0</label>
-                      <input type="text" id="answer0" class="w-full h-12 rounded-md border px-4 mb-6">
-                  </div>
-                  <div class="input-group">
-                      <label class="block text-sm text-gray-400 mb-2">Answer 1</label>
-                      <input type="text" id="answer1" class="w-full h-12 rounded-md border px-4 mb-6">
-                  </div>
-                  <div class="input-group">
-                      <label class="block text-sm text-gray-400 mb-2">Answer 2</label>
-                      <input type="text" id="answer2" class="w-full h-12 rounded-md border px-4 mb-6">
-                  </div>
-                  
-              </div>
-
-             
-
-
-
-          </div>
-          <div class="modal-footer flex gap-3">
-             
-              <button id="close-btn" class="w-full h-12 rounded-md px-4 bg-gray-200">Annuler</button>
-              <button id="save-btn" class="text-white bg-blick w-full h-12 rounded-md px-4 bg-gray-100">Sauver</button>
-          </div>
-      </div> -->
-  </div>
-
-  
-
-  <!-- <div id="overlay" class="fixed top-20 right-0 bottom-0 left-0 bg-black opacity-55 z-10"></div> -->
-
-  <div id="details" class="fixed bg-white w-96 top-20 bottom-0 right-0 shadow-lg p-5 z-10">
-    <div id="details-header" class=" bg-gray-200 -mt-5 -ml-5 -mr-5 px-5 py-5 mb-8">
-      <span id="details-title" class="text-black font-semibold">Titre de la colonne</span>
-    </div>
     
-    <div id="details-body">
-     
-    </div>
-    <ul id="error-label"></ul>
-    <button id="add-field-btn" class="btn btn-secondary">
-      <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='19'%20height='19'%20viewBox='0%200%2019%2019'%3e%3cg%20id='Groupe_38'%20data-name='Groupe%2038'%20transform='translate(-1186%20-684)'%3e%3crect%20id='Rectangle_114'%20data-name='Rectangle%20114'%20width='3'%20height='19'%20rx='1.5'%20transform='translate(1205%20692)%20rotate(90)'/%3e%3crect%20id='Rectangle_115'%20data-name='Rectangle%20115'%20width='3'%20height='19'%20rx='1.5'%20transform='translate(1197%20703)%20rotate(180)'/%3e%3c/g%3e%3c/svg%3e" alt="Ajouter un champ" class="w-3 mx-auto">
-    </button>
-    <div id="details-footer" class="absolute bg-white bottom-0 left-0 right-0 p-5 flex gap-3 border-t border-gray-200">
-      <button id="close-btn" class="btn btn-secondary">Annuler</button>
-      <button id="save-btn" class="btn btn-primary">Sauver</button>
-    </div>
-  </div>
+
+    
+
+    
  
 
     <div id="login-box" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
@@ -113,12 +47,116 @@
    
 
     <!-- <div id="firebaseui-auth-container"></div> -->
-    <p id="user-info" class="fixed bottom-4 left-4 z-10">Vérification de l'état de connexion...</p>
-    
-    <div id="app">
-      <ul id="elem-list" class="w-2/3 gap-5">
+    <!-- <p id="user-info" class="fixed text-xs text-gray-300 bottom-4 left-4 z-10">Vérification de l'état de connexion...</p> -->
+    <!-- <ul class="font-i max-w-5xl mx-auto mt-20 mb-20">
+      <li class="h-12 w-full bg-gray-200 rounded-t-lg">
+        <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-4/12">Titre</div>
+        <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-1/12">Type</div>
+        <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-3/12">Auteur</div>
+        <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-1/12">Perf.</div>
+        <div class="text-xs text-gray-600 px-4 h-full float-right flex items-center"></div>
+      </li>
+      <li class="relative h-20 w-full bg-white">
+        <div class="font-blickb text-sm text-gray-600 px-4 h-full float-left flex items-center w-4/12">
+          Selon toi, qui remportera 
+          l’Euro Féminin 3025 ?
+        </div>
+        <div class="text-sm text-gray-600 px-4 h-full float-left flex items-center w-1/12">
+          <img src="src/img/icon-poll.svg" alt="">
+        </div>
+        <div class="text-sm text-gray-600 px-4 h-full float-left flex items-center w-3/12">
+          cesargreppin@gmail.com
+        </div>
+        <div class="text-sm text-gray-600 px-4 h-full float-left flex items-center w-1/12">
+          58
+        </div>
+        <div class="relative h-full text-sm text-gray-600 px-4 absolute top-1/2 -translate-y-1/2 flex items-center">
+          <button class="relative btn-white aspect-square h-8 rounded-md px-4 ml-auto mr-1" title="Télécharger résultats pour RS">
+            <img src="src/img/icon-download.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50">
+          </button>
+          <button class="relative btn-white aspect-square h-8 rounded-md px-4 mr-1" title="Aperçu">
+            <img src="src/img/icon-eye.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50">
+          </button>
+          <button class="relative btn-white aspect-square h-8 rounded-md px-4 mr-1" title="Copier l'URL">
+            <img src="src/img/icon-copy.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50">
+          </button>
+          <button class="relative btn-white aspect-square h-8 rounded-md px-4 mr-1" title="Éditer">
+            <img src="src/img/icon-edit.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50">
+          </button>
+          <button class="relative btn-white aspect-square h-8 rounded-md px-4" title="Supprimer">
+            <img src="src/img/icon-trash-red.svg" alt="" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-50">
+          </button>
+        </div>
+      </li>
+    </ul> -->
 
-      </ul>
+    <div id="app" class="">
+      <header class="w-full h-20 bg-white fixed top-0 border-b z-20">
+        <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='53.889'%20height='53.889'%20viewBox='0%200%2053.889%2053.889'%3e%3cg%20id='Groupe_15'%20data-name='Groupe%2015'%20transform='translate(-116.056%20-2534.056)'%3e%3crect%20id='Rectangle_121'%20data-name='Rectangle%20121'%20width='44'%20height='44'%20rx='10'%20transform='matrix(0.966,%200.259,%20-0.259,%200.966,%20127.444,%202534.056)'%20fill='%23e2271b'/%3e%3cg%20id='Groupe_11'%20data-name='Groupe%2011'%20transform='translate(-436.844%203005.052)'%3e%3cpath%20id='Blick_Logo_Rot_RGB'%20d='M12,18.376H7.062V24H12a2.81,2.81,0,1,0,0-5.619M10.947,8.311H7.062V13.7h3.885a2.692,2.692,0,1,0,0-5.384M22.128,21.536a8.686,8.686,0,0,1-8.71,8.661H0V2.108H12.477a8.217,8.217,0,0,1,8.24,8.194,8.118,8.118,0,0,1-1.528,4.75,8.621,8.621,0,0,1,2.94,6.486'%20transform='translate(568.78%20-460.205)'%20fill='%23fff'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e" alt="logo blick tools" class="mx-auto absolute top-1/2 -translate-y-1/2 left-4">
+        <ul id="filter-by-type" class="absolute font-blickr left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex gap-10">
+          <li id="filter-by-type-all" class="font-blickb cursor-pointer">Tous</li>
+          <li id="filter-by-type-poll" class="cursor-pointer">Sondage</li>
+          <li id="filter-by-type-calendar" class="cursor-pointer">Calendrier</li>
+        </ul>
+        <div id="menu-user" class="absolute right-0 h-full aspect-square">
+          <button class="btn-white btn-secondary h-full aspect-square border-l">
+            <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20width='24.514'%20height='28'%20viewBox='0%200%2024.514%2028'%3e%3cdefs%3e%3cclipPath%20id='clip-path'%3e%3crect%20id='Rectangle_161'%20data-name='Rectangle%20161'%20width='24.514'%20height='28'%20transform='translate(0%200)'%20fill='none'/%3e%3c/clipPath%3e%3c/defs%3e%3cg%20id='Groupe_56'%20data-name='Groupe%2056'%20transform='translate(0%20-0.002)'%3e%3cg%20id='Groupe_55'%20data-name='Groupe%2055'%20transform='translate(0%200.002)'%20clip-path='url(%23clip-path)'%3e%3cpath%20id='Tracé_17'%20data-name='Tracé%2017'%20d='M9.442,884.965c2.338-.138,6-.206,8.212.43a9.7,9.7,0,0,1,6.826,8.4c.114,1.2.006,2.223-1.365,2.505H1.406c-1.781-.323-1.462-2.2-1.2-3.544a9.7,9.7,0,0,1,9.239-7.788m12.435,8.726a7.212,7.212,0,0,0-6.846-6.142,51.845,51.845,0,0,0-5.479,0,7.277,7.277,0,0,0-6.909,6.145Z'%20transform='translate(0%20-868.298)'/%3e%3cpath%20id='Tracé_18'%20data-name='Tracé%2018'%20d='M286.925.044a7.026,7.026,0,0,1,7.306,9.774,7.043,7.043,0,0,1-12.534.624,7.044,7.044,0,0,1,5.229-10.4m.332,2.6A4.384,4.384,0,1,0,292.05,5.9a4.47,4.47,0,0,0-4.792-3.254'%20transform='translate(-275.548%20-0.002)'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e" alt="Icon-add" class="absolute w-5 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          </button>
+          <ul id="menu-user-list" class="absolute bg-white py-2 -bottom-4 w-60 right-4 rounded-xl shadow-lg">
+            <li id="user-info" class="text-sm text-gray-400 border-b h-16 flex items-center px-4"></li>
+            <li id="logout" class="btn-white cursor-pointer  h-12 flex items-center px-4">Déconnexion</li>
+          </ul>
+        </div>
+      </header>
+      <div id="menu-add" class="fixed bottom-6 right-6 z-10">
+        <button class="add-btn h-16 w-16 rounded-full btn-primary shadow-lg relative">
+          <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='19'%20height='19'%20viewBox='0%200%2019%2019'%3e%3cg%20id='Groupe_20'%20data-name='Groupe%2020'%20transform='translate(-1186%20-684)'%3e%3crect%20id='Rectangle_114'%20data-name='Rectangle%20114'%20width='3'%20height='19'%20rx='1.5'%20transform='translate(1205%20692)%20rotate(90)'%20fill='%23fff'/%3e%3crect%20id='Rectangle_115'%20data-name='Rectangle%20115'%20width='3'%20height='19'%20rx='1.5'%20transform='translate(1197%20703)%20rotate(180)'%20fill='%23fff'/%3e%3c/g%3e%3c/svg%3e" alt="Icon-add" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        </button>
+        <ul id="menu-add-list" class="absolute bg-white py-2 -top-4  w-60 right-0 rounded-xl shadow-lg">
+          <li id="btn-new-poll" class="btn-white cursor-pointer h-12 flex items-center px-4">Nouveau sondage</li>
+          <li id="btn-new-calendar" class="btn-white cursor-pointer  h-12 flex items-center px-4">Nouveau calendrier</li>
+        </ul>
+      </div>
+      <div class="pt-48 max-w-5xl mx-auto">
+      <div id="modal-overlay" class="fixed top-0 bottom-0 left-0 right-0 z-10 hidden">
+      </div>
+      <div id="details" class="fixed bg-white w-96 top-20 bottom-0 right-0 shadow-lg p-5 z-10">
+        <div id="details-header" class=" bg-gray-200 -mt-5 -ml-5 -mr-5 px-5 py-5 mb-8">
+          <span id="details-title" class="text-black text-lg font-semibold">Titre de la colonne</span>
+        </div>
+        
+        <div id="details-body">
+        
+        </div>
+        <ul id="error-label"></ul>
+        <button id="add-field-btn" class="btn btn-secondary mb-24">
+          <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='19'%20height='19'%20viewBox='0%200%2019%2019'%3e%3cg%20id='Groupe_38'%20data-name='Groupe%2038'%20transform='translate(-1186%20-684)'%3e%3crect%20id='Rectangle_114'%20data-name='Rectangle%20114'%20width='3'%20height='19'%20rx='1.5'%20transform='translate(1205%20692)%20rotate(90)'/%3e%3crect%20id='Rectangle_115'%20data-name='Rectangle%20115'%20width='3'%20height='19'%20rx='1.5'%20transform='translate(1197%20703)%20rotate(180)'/%3e%3c/g%3e%3c/svg%3e" alt="Ajouter un champ" class="w-3 mx-auto">
+        </button>
+        <div id="details-footer" class="fixed w-96 bg-white bottom-0 right-0 p-5 flex gap-3 border-t border-gray-200">
+          <button id="close-btn" class="btn btn-secondary">Annuler</button>
+          <button id="save-btn" class="btn btn-primary">Sauver</button>
+        </div>
+      </div>
+
+      
+        <div id="options" class="flex mb-8 w-96 relative">
+          <img src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%20width='30'%20height='30'%20viewBox='0%200%2030%2030'%3e%3cdefs%3e%3cclipPath%20id='clip-path'%3e%3crect%20id='Rectangle_143'%20data-name='Rectangle%20143'%20width='19.956'%20height='20'%20fill='none'/%3e%3c/clipPath%3e%3c/defs%3e%3cg%20id='Groupe_46'%20data-name='Groupe%2046'%20transform='translate(-170%20-117)'%3e%3crect%20id='Rectangle_144'%20data-name='Rectangle%20144'%20width='30'%20height='30'%20transform='translate(170%20117)'%20fill='none'/%3e%3cg%20id='Groupe_45'%20data-name='Groupe%2045'%20transform='translate(175.022%20122)'%3e%3cg%20id='Groupe_45-2'%20data-name='Groupe%2045'%20clip-path='url(%23clip-path)'%3e%3cpath%20id='Tracé_14'%20data-name='Tracé%2014'%20d='M19.561,17.814a1.263,1.263,0,0,1-1.649,1.911L12.9,14.717a8.522,8.522,0,0,1-3.581,1.45c-9,1.243-12.9-10.776-5.2-15.089C11.332-2.959,19.252,5.131,15.05,12.342c-.073.126-.392.517-.366.618ZM7.582,2.544A5.632,5.632,0,1,0,13,10.915,5.644,5.644,0,0,0,7.582,2.544'%20transform='translate(-0.001%200)'/%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e" alt="" class="absolute top-1/2 -translate-y-1/2 left-4">
+          <input id="searchbar" type="text" class="w-full h-14 rounded-full border-gray-300 bg-transparent border pl-14 pr-4" placeholder="Rechercher...">
+        </div>
+        <ul class="font-i">
+          <li class="h-12 w-full bg-gray-200 rounded-t-lg">
+            <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-4/12">Titre</div>
+            <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-1/12">Type</div>
+            <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-3/12">Auteur</div>
+            <div class="text-xs text-gray-600 px-4 h-full float-left flex items-center w-1/12">Perf.</div>
+            <div class="text-xs text-gray-600 px-4 h-full float-right flex items-center"></div>
+          </li>
+        </ul>
+        <ul id="elem-list" class="w-full">
+
+        </ul>
+
+      </div>
     </div>
     
   </body>
